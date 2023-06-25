@@ -593,8 +593,9 @@ copy "$(OutDir)$(TargetName).pdb" dist\$(Platform)
 copy FreeImagePlus.h dist\$(Platform)</Command>
     </PostBuildEvent>
     <Lib>
-      <TargetMachine>MachineARM64</TargetMachine>
+      <TargetMachine>MachineARM</TargetMachine>
       <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

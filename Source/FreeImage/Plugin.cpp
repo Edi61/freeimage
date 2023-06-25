@@ -238,6 +238,9 @@ FreeImage_Initialise(BOOL load_local_plugins_only) {
 			*/
 			s_plugins->AddNode(InitBMP);
 			s_plugins->AddNode(InitICO);
+        #if (defined _M_ARM64) || (defined _M_ARM)
+			s_plugins->AddNode(InitJPEG);
+        #endif
 			s_plugins->AddNode(InitJNG);
 			s_plugins->AddNode(InitKOALA);
 			s_plugins->AddNode(InitIFF);
@@ -248,10 +251,16 @@ FreeImage_Initialise(BOOL load_local_plugins_only) {
 			s_plugins->AddNode(InitPCX);
 			s_plugins->AddNode(InitPNM, NULL, "PGM", "Portable Greymap (ASCII)", "pgm", "^P2");
 			s_plugins->AddNode(InitPNM, NULL, "PGMRAW", "Portable Greymap (RAW)", "pgm", "^P5");
+        #if (defined _M_ARM64) || (defined _M_ARM)
+			s_plugins->AddNode(InitPNG);
+        #endif
 			s_plugins->AddNode(InitPNM, NULL, "PPM", "Portable Pixelmap (ASCII)", "ppm", "^P3");
 			s_plugins->AddNode(InitPNM, NULL, "PPMRAW", "Portable Pixelmap (RAW)", "ppm", "^P6");
 			s_plugins->AddNode(InitRAS);
 			s_plugins->AddNode(InitTARGA);
+        #if (defined _M_ARM64) || (defined _M_ARM)
+			s_plugins->AddNode(InitTIFF);
+        #endif
 			s_plugins->AddNode(InitWBMP);
 			s_plugins->AddNode(InitPSD);
 			s_plugins->AddNode(InitCUT);
@@ -262,8 +271,16 @@ FreeImage_Initialise(BOOL load_local_plugins_only) {
 	        s_plugins->AddNode(InitHDR);
 			s_plugins->AddNode(InitG3);
 			s_plugins->AddNode(InitSGI);
+        #if (defined _M_ARM64) || (defined _M_ARM)
+			s_plugins->AddNode(InitEXR);
+			s_plugins->AddNode(InitJ2K);
+			s_plugins->AddNode(InitJP2);
+        #endif
 			s_plugins->AddNode(InitPFM);
 			s_plugins->AddNode(InitPICT);
+        #if (defined _M_ARM64) || (defined _M_ARM)
+			s_plugins->AddNode(InitRAW);
+        #endif
 			s_plugins->AddNode(InitWEBP);
 #if !(defined(_MSC_VER) && (_MSC_VER <= 1310))
 			s_plugins->AddNode(InitJXR);
